@@ -6,8 +6,7 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import 'react-leaflet-markercluster/styles'
-import { ClassNames } from '@emotion/react';
-import { Icon } from '@mui/material';
+
 // Fix for default icon issue in Leaflet
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -46,6 +45,7 @@ const clusters = [
 
 
 const ClientPage = () => {
+  
   const [selectedLocation, setSelectedLocation] = useState(null);
 
   const handleLocationClick = (location) => {

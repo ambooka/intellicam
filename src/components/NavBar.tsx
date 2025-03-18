@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import * as React from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
@@ -15,15 +15,14 @@ import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import MoreIcon from '@mui/icons-material/MoreVert';
-import Link from 'next/link';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import RestoreIcon from '@mui/icons-material/Restore';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { HomeMax, HomeOutlined } from '@mui/icons-material';
+import VideocamIcon from '@mui/icons-material/Videocam';
+import HistoryIcon from '@mui/icons-material/History';
+import SensorsIcon from '@mui/icons-material/Sensors';
+import SettingsIcon from '@mui/icons-material/Settings';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -166,7 +165,7 @@ export default function NavBar() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box >
       <AppBar position="static">
         <Toolbar>
           <IconButton
@@ -246,35 +245,40 @@ export default function NavBar() {
           showLabels
           value={0}
           onChange={(event, newValue) => {
-            // Handle bottom navigation change
+            // Handle navigation here
           }}
-          sx={{ width: '100%', position: 'fixed', bottom: 0 }}
+          sx={{
+            width: '100%',
+            position: 'fixed',
+            bottom: 0,
+            bgcolor: 'background.paper',
+            zIndex: 1100
+          }}
         >
           <BottomNavigationAction
-            label="Recents"
-            icon={
-              <Badge badgeContent={4} color="error">
-                <HomeOutlined />
-              </Badge>
-            }
-          />
-           <BottomNavigationAction
-            label="Recents"
-            icon={
-              <Badge badgeContent={4} color="error">
-                <HomeOutlined />
-              </Badge>
-            }
+            label="Live"
+            icon={<VideocamIcon />}
           />
           <BottomNavigationAction
-            label="Favorites"
+            label="Alerts"
             icon={
-              <Badge badgeContent={2} color="error">
+              <Badge badgeContent={3} color="error">
                 <NotificationsIcon />
               </Badge>
             }
           />
-          
+          <BottomNavigationAction
+            label="History"
+            icon={<HistoryIcon />}
+          />
+          <BottomNavigationAction
+            label="Devices"
+            icon={<SensorsIcon />}
+          />
+          <BottomNavigationAction
+            label="Settings"
+            icon={<SettingsIcon />}
+          />
         </BottomNavigation>
       )}
     </Box>
